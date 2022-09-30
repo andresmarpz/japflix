@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Japflix</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/index.js"></script>
+</head>
+
+<body class="bg-dark">
+  <main>
+    <div class="text-center container">
+      <div class="row py-lg-3">
+        <div class="col-lg-6 col-md-8 mx-auto">
+          <h1 class="fw-light"><img src="img/japflix.png" alt=""></h1>
+          <input type="search" class="form-control" name="buscar" id="inputBuscar" placeholder="Ej.: The Lion King">
+          <button class="btn btn-primary m-2" id="btnBuscar">Buscar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="album">
+      <ul class="list-group container text-white d-flex flex-column gap-4" id="lista">
+      </ul>
+	  <div class="offcanvas offcanvas-top" tabindex="-1" id="id${pelicula.id}" aria-labelledby="offcanvasExampleLabel">
+		<div class="offcanvas-header">
+		  <h5 class="offcanvas-title" id="offcanvasExampleLabel">${pelicula.title}</h5>
+		  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+		  <div>
+			<p>${pelicula.overview}</p>
+			</div>
+			<hr>
+			<p class="text-muted position-relative">${generos(pelicula.genres)}</p>
+		  </div>
+		  <div class="dropdown position-absolute bottom-0 end-0 mb-4 mx-2">
+			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+			  More
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			  <li><p>Year: <span class="float-end">${pelicula.release_date.split("-")[0]}</span></p></li>
+			  <li><p>Runtime: <span class="float-end">${pelicula.runtime} mins</span></p></li>
+			  <li><p>Budget: <span class="float-end">$${pelicula.budget}</span></p></li>
+			  <li><p>Revenue: <span class="float-end">$${pelicula.revenue}</span></p></li>
+			</ul>
+		  </div>
+	  </div>
+    </div>
+  </main>
+
+  <footer class="text-muted py-3">
+    <div class="container">
+      <p class="float-end mb-1">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p class="mb-1">Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">
+          Jovenes a Programar</a>.
+      <p class="mb-1">Generado con fines estrictamente educativos.</p>
+    </div>
+  </footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
